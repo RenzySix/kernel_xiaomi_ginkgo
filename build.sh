@@ -45,17 +45,7 @@ echo -e "\nCleanup KernelSU first on local build\n"
 rm -rf KernelSU drivers/kernelsu
 
 echo -e "\nKSU Support, let's Make it On\n"
-<<<<<<< HEAD
 curl -kLSs "https://raw.githubusercontent.com/OzoraID/KernelSU-Next/next-experimental/kernel/setup.sh" | bash -s next-experimental
-=======
-curl -kLSs "https://raw.githubusercontent.com/kutemeikito/KernelSU-Next/next/kernel/setup.sh" | bash -s next
-git apply KernelSU-hook.patch
-sed -i 's/CONFIG_KSU=n/CONFIG_KSU=y/g' arch/arm64/configs/vendor/ginkgo-perf_defconfig
-sed -i 's/CONFIG_LOCALVERSION="-RyzenKernel"/CONFIG_LOCALVERSION="-RyzenKernel-KSU"/g' arch/arm64/configs/vendor/ginkgo-perf_defconfig
-else
-echo -e "\nKSU not Support, let's Skip\n"
-fi
->>>>>>> parent of b0fdddd4f255 (treewide: Import KSU Hook)
 
 mkdir -p out
 make O=out ARCH=arm64 $DEFCONFIG
