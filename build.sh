@@ -71,7 +71,7 @@ echo -e "\nKernel compiled succesfully! Zipping up...\n"
 git restore arch/arm64/configs/vendor/ginkgo-perf_defconfig
 if [ -d "$AK3_DIR" ]; then
 cp -r $AK3_DIR AnyKernel3
-elif ! git clone -q https://github.com/kutemeikito/AnyKernel3; then
+elif ! git clone -q https://github.com/Renzy16/AnyKernel3; then
 echo -e "\nAnyKernel3 repo not found locally and cloning failed! Aborting..."
 exit 1
 fi
