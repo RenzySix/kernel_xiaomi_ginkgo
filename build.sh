@@ -45,7 +45,7 @@ echo -e "\nCleanup KernelSU first on local build\n"
 rm -rf KernelSU drivers/kernelsu
 
 echo -e "\nKSU Support, let's Make it On\n"
-curl -kLSs "https://raw.githubusercontent.com/OzoraID/KernelSU-Next/next-experimental/kernel/setup.sh" | bash -s next-experimental
+curl -kLSs "https://raw.githubusercontent.com/OzoraID/KernelSU-Next/next-susfs/kernel/setup.sh" | bash -s next-susfs
 
 mkdir -p out
 make O=out ARCH=arm64 $DEFCONFIG
@@ -71,7 +71,7 @@ echo -e "\nKernel compiled succesfully! Zipping up...\n"
 git restore arch/arm64/configs/vendor/ginkgo-perf_defconfig
 if [ -d "$AK3_DIR" ]; then
 cp -r $AK3_DIR AnyKernel3
-elif ! git clone -q https://github.com/Renzy665/AnyKernel3; then
+elif ! git clone -q https://github.com/kutemeikito/AnyKernel3; then
 echo -e "\nAnyKernel3 repo not found locally and cloning failed! Aborting..."
 exit 1
 fi
