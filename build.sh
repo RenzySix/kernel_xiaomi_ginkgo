@@ -12,7 +12,7 @@
 
 SECONDS=0 # builtin bash timer
 DATE=$(TZ=Asia/Jakarta date +"%Y%m%d-%H%M")
-ZIPNAME="Kazuya-AOSP-Ginkgo-KSU-${DATE}.zip"
+ZIPNAME="Kazuya-Ginkgo-KSU-${DATE}.zip"
 TC_DIR="$HOME/toolchain"
 CLANG_DIR="${TC_DIR}/clang-rastamod"
 GCC_64_DIR="${TC_DIR}/toolchain/aarch64-linux-android-4.9"
@@ -21,7 +21,7 @@ AK3_DIR="$HOME/Android/AnyKernel3"
 DEFCONFIG="vendor/ginkgo-perf_defconfig"
 
 export PATH="$CLANG_DIR/bin:$PATH"
-export KBUILD_BUILD_USER="Flow"
+export KBUILD_BUILD_USER="t.me"
 export KBUILD_BUILD_HOST="Renzy665"
 export LD_LIBRARY_PATH="$CLANG_DIR/lib:$LD_LIBRARY_PATH"
 export KBUILD_BUILD_VERSION="1"
@@ -45,7 +45,7 @@ echo -e "\nCleanup KernelSU first on local build\n"
 rm -rf KernelSU drivers/kernelsu
 
 echo -e "\nKSU Support, let's Make it On\n"
-curl -kLSs "https://raw.githubusercontent.com/OzoraID/KernelSU-Next/next-susfs/kernel/setup.sh" | bash -s next-susfs
+curl -kLSs "https://raw.githubusercontent.com/Renzy16/KernelSU-Next/next-susfs/kernel/setup.sh" | bash -s next-susfs
 
 mkdir -p out
 make O=out ARCH=arm64 $DEFCONFIG
