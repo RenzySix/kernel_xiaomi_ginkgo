@@ -1,17 +1,11 @@
 #!/usr/bin/env bash
 #
-# Copyright (C) 2023 Edwiin Kusuma Jaya (ryuzenn)
-#
-# Simple Local Kernel Build Script
-#
-# Configured for Redmi Note 8 / ginkgo custom kernel source
-#
 # Setup build env with akhilnarang/scripts repo
 #
 # Use this script on root of kernel directory
 
 SECONDS=0 # builtin bash timer
-ZIPNAME="neophyte-v1.0-Ginkgo-$(TZ=Asia/Jakarta date +"%Y%m%d-%H%M").zip"
+ZIPNAME="neophyte-v2.5-Ginkgo-$(TZ=Asia/Jakarta date +"%Y%m%d-%H%M").zip"
 TC_DIR="$(pwd)/../tc/"
 CLANG_DIR="${TC_DIR}clang"
 GCC_64_DIR="${TC_DIR}aarch64-linux-android-4.9"
