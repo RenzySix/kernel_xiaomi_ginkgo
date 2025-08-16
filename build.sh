@@ -13,7 +13,7 @@
 SECONDS=0 # builtin bash timer
 CCACHE=$(command -v ccache)
 DATE=$(TZ=Asia/Jakarta date +"%Y%m%d-%H%M")
-ZIPNAME="Kazuya-Ginkgo-KSU-${DATE}.zip"
+ZIPNAME="Kazuya-Ginkgo-Sukisu-${DATE}.zip"
 TC_DIR="$HOME/toolchain"
 CLANG_DIR="${TC_DIR}/clang-rastamod"
 ARCH_DIR="${TC_DIR}/aarch64-linux-android-4.9"
@@ -54,12 +54,13 @@ if [[ $1 = "-k" || $1 = "--ksu" ]]; then
     rm -rf KernelSU drivers/kernelsu
 
   echo -e "\nKSU Support, let's Make it On\n"
-    curl -kLSs "https://raw.githubusercontent.com/RenzySix/KernelSU-Next/next-susfs/kernel/setup.sh" | bash -s next-susfs
+    curl -kLSs "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh" | bash -s susfs-main
 
   sed -i 's/CONFIG_KSU=n/CONFIG_KSU=y/g' arch/arm64/configs/ginkgo_defconfig
-else
-  echo -e "\nKSU not Support, let's Skip\n"
-fi
+    sed -i 's/CONFIG_KSU_MANUAL_HOOK=n/CONFIG_KSU_MANUAL_HOOK=y/g' arch/arm64/configs/ginkgo_defconfig
+ else
+   echo -e "\nKSU not Support, let's Skip\n"
+ fi
 
 mkdir -p out
 make O=out ARCH=arm64 $DEFCONFIG
